@@ -1,3 +1,5 @@
+size = 720
+
 addBlack = function() {
 	$(this).addClass('black');
 };
@@ -18,10 +20,10 @@ resetAndMakeNew = function() {
 
 	newSquares = prompt("How many squares per side for new grid?");
 
-	newDivSize = 320 / newSquares;
+	newDivSize = size / newSquares;
 
 	for (i = 0; i < newSquares * newSquares; i++) {
-		$('div.container').append("<div></div>")
+		drawingBoard.append("<div></div>")
 	};
 
 	$('div.container').children('div').css({
@@ -56,11 +58,13 @@ $(document).ready(function() {
 
 	$('.buttons').append("<button id='gray_reset'>Reset for Shades of Gray</button>")
 	
+	drawingBoard = $('div.container')
+
 	for (i = 0; i < 16*16; i++) {
-		$('div.container').append("<div></div>")
+		drawingBoard.append("<div></div>")
 	};
 
-	$('.container').children('div').mouseenter(addBlack);
+	drawingBoard.children('div').mouseenter(addBlack);
 
 	$('#blackreset').on('click', resetForBlack);
 	$('#color_reset').on('click', colorReset);
