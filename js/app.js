@@ -50,15 +50,19 @@ grayReset = function() {
 
 $(document).ready(function() {
 
-	$('body').prepend("<div class='container'></div>")
+	$('body').prepend("<div class='container'></div>");
 
-	$('body').prepend("<div class='buttons'><button id='blackreset'>Reset For Black</button></div>")
+	drawingBoard = $('div.container');
 
-	$('.buttons').append("<button id='color_reset'>Reset to Random Colors</button>")
+	drawingBoard.before("<div class='buttons'><button id='blackreset'>Reset For Black</button></div>");
 
-	$('.buttons').append("<button id='gray_reset'>Reset for Shades of Gray</button>")
+	$('.buttons').append("<button id='color_reset'>Reset to Random Colors</button>");
+
+	$('.buttons').append("<button id='gray_reset'>Reset for Shades of Gray</button>");
+
+	$('.buttons').before("<br><h1>Etch-A-Sketch!</h1>")
 	
-	drawingBoard = $('div.container')
+	
 
 	for (i = 0; i < 16*16; i++) {
 		drawingBoard.append("<div></div>")
