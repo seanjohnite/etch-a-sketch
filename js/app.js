@@ -62,7 +62,9 @@ $(document).ready(function() {
 
 	$('.buttons').append("<button id='gray_reset'>Reset for Shades of Gray</button>");
 
-	$('.buttons').before("<br><h1>Etch-A-Sketch!</h1>")
+	$('.buttons').before("<br><h1>Etch-A-Sketch</h1>")
+
+	$('.buttons').before("<br><p>Click one of the reset buttons to reset the Etch-A-Sketch. My favorite is the shades of gray :)</p>")
 	
 	
 
