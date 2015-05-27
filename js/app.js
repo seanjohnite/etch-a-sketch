@@ -18,7 +18,9 @@ addGray10 = function() {
 resetAndMakeNew = function() {
 	$('div.container').empty();
 
-	newSquares = prompt("How many squares per side for new grid?");
+	var deflt = '16'
+
+	newSquares = prompt("How many squares per side for new grid?", deflt);
 
 	newDivSize = size / newSquares;
 
