@@ -22,7 +22,7 @@ resetAndMakeNew = function() {
 
 	newSquares = prompt("How many squares per side for new grid?", deflt);
 
-	newDivSize = size / newSquares;
+	newDivSize = 720.0 / newSquares;
 
 	for (i = 0; i < newSquares * newSquares; i++) {
 		drawingBoard.append("<div></div>")
