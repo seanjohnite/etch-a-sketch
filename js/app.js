@@ -9,13 +9,17 @@ addRandomRGB = function() {
 	$(this).css("background-color", random_color);
 };
 
-addGray10 = function() {
+addGray10 = function(first) {
+	if (first) {
+		$('.container').children('div').css({"background-color": "#000", "opacity": "0"});
+		first = false;
+	}
 	if ($(this).css("opacity") < 1) {
 		$(this).css("opacity", "+=0.10")
 	};
 };
 
-resetAndMakeNew = function() {
+resetAndMakeNew = function(changeFunc) {
 	$('div.container').empty();
 
 	var deflt = '16'
@@ -32,23 +36,11 @@ resetAndMakeNew = function() {
 		"height": newDivSize,
 		"width": newDivSize
 	});
-}
 
-resetForBlack = function() {
-	resetAndMakeNew();
-	$('.container').children('div').mouseenter(addBlack);
-}
+	var first = true;
 
-colorReset = function() {
-	resetAndMakeNew();
-	$('.container').children('div').mouseenter(addRandomRGB);
+	$('.container').children('div').mouseenter(function() { changeFunc(first) });
 }
-
-grayReset = function() {
-	resetAndMakeNew();
-	$('.container').children('div').css({"background-color": "#000", "opacity": "0"});
-	$('.container').children('div').mouseenter(addGray10);
-};
 
 $(document).ready(function() {
 
@@ -74,7 +66,7 @@ $(document).ready(function() {
 
 	drawingBoard.children('div').mouseenter(addBlack);
 
-	$('#blackreset').on('click', resetForBlack);
-	$('#color_reset').on('click', colorReset);
-	$('#gray_reset').on('click', grayReset)
+	$('#blackreset').on('click', function() { resetAndMakeNew(addBlack); });
+	$('#color_reset').on('click', function() { resetAndMakeNew(addRandomRGB); });
+	$('#gray_reset').on('click', function() { resetAndMakeNew(addGray10); });
 });
